@@ -16,8 +16,8 @@ namespace AddressBookSystem
             switch(option)
             {
                 case 1:
-                    UC_AbilityToCreateContacts uC_AbilityToCreateContacts = new UC_AbilityToCreateContacts();
-                    uC_AbilityToCreateContacts.addContact();
+                    UC1_AbilityToCreateContacts uC1_AbilityToCreateContacts=new UC1_AbilityToCreateContacts();
+                    uC1_AbilityToCreateContacts.addContact();
                     break;
                 default:
                     Console.WriteLine("Please enter correct option");

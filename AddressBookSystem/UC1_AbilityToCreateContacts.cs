@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBookSystem
 {
-    internal class UC_AbilityToCreateContacts
+    internal class UC1_AbilityToCreateContacts
     {
         static string firstName, lastName, address, city, state, email;
         static int pinCode;
