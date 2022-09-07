@@ -16,15 +16,15 @@ namespace AddressBookSystem
 
             do
             {
-                Console.WriteLine("Choose option: \n1.Creating Contacts\n2.Adding New Contacts\n3.Displaying Contacts");
+                Console.WriteLine("Choose option: \n1.Creating or Adding new Contacts\n2.Displaying Contacts\n3.Edit the Contact Details using First Name");
                 int option = int.Parse(Console.ReadLine());
                 switch (option)
                 {
-                    case 1:
+                   /* case 1:
                         UC1_AbilityToCreateContacts uC1_AbilityToCreateContacts = new UC1_AbilityToCreateContacts();
                         uC1_AbilityToCreateContacts.addContact();
-                        break;
-                    case 2:
+                        break;*/
+                    case 1:
                         Console.WriteLine("Enter First Name :");
                         string firstName = Console.ReadLine();
                         Console.WriteLine("Enter Last Name :");
@@ -43,8 +43,13 @@ namespace AddressBookSystem
                         long phoneNumber = Convert.ToInt64(Console.ReadLine());
                         builder.AddContact(firstName, lastName, address, city, state, email, pinCode, phoneNumber);
                         break;
-                    case 3:
+                    case 2:
                         builder.DisplayContact();
+                        break;
+                    case 3:
+                        Console.WriteLine("Enter the first name of the contact");
+                        string nameToEdit=Console.ReadLine();
+                        builder.EditContact(nameToEdit);
                         break;
                     default:
                         Console.WriteLine("Please enter correct option");
