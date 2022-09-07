@@ -93,6 +93,26 @@ namespace AddressBookSystem
                 Console.WriteLine("the given first Name Contact not exits");
             }
         }
+        public void DeleteContact(string deletename)
+        {
+            if(list.Count>0)
+            {
+                foreach(var contact in list)
+                {
+                    if(contact.firstName==deletename)
+                    {
+                        list.Remove(contact);
+                        Console.WriteLine("the contact deleted successfully");
+                        break;
+                    }
+                }
+                Console.WriteLine("the contact not exists");
+            }
+            else
+            {
+                Console.WriteLine("list is empty, so delete option is invalid");
+            }
+        }
 
     }
 }

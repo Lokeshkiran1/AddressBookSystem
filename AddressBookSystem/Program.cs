@@ -16,7 +16,7 @@ namespace AddressBookSystem
 
             do
             {
-                Console.WriteLine("Choose option: \n1.Creating or Adding new Contacts\n2.Displaying Contacts\n3.Edit the Contact Details using First Name");
+                Console.WriteLine("Choose option: \n1.Creating or Adding new Contacts\n2.Displaying Contacts\n3.Edit the Contact Details using First Name\n4.Delete the existing contact");
                 int option = int.Parse(Console.ReadLine());
                 switch (option)
                 {
@@ -50,6 +50,11 @@ namespace AddressBookSystem
                         Console.WriteLine("Enter the first name of the contact");
                         string nameToEdit=Console.ReadLine();
                         builder.EditContact(nameToEdit);
+                        break;
+                    case 4:
+                        Console.WriteLine("Enter the first name of the contact you want to delete details");
+                        string nameToDelete=Console.ReadLine();
+                        builder.DeleteContact(nameToDelete);
                         break;
                     default:
                         Console.WriteLine("Please enter correct option");
