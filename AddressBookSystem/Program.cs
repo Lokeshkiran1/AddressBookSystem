@@ -33,7 +33,10 @@ namespace AddressBookSystem
 
             do
             {
-                Console.WriteLine("Choose option: \n1.Creating or Adding new Contacts\n2.Displaying Contacts\n3.Edit the Contact Details using First Name\n4.Delete the existing contact");
+                Console.WriteLine("Choose option: \n1.Creating or Adding new Contacts\n2.Displaying Contacts\n" +
+                    "3.Edit the Contact Details using First Name\n4.Delete the existing contact\n" +
+                    "5.Ability to add multiple persons to address book\n6.Refactor to add multiple Address Book to the System\n" +
+                    "");
                 int option = int.Parse(Console.ReadLine());
                 switch (option)
                 {
@@ -86,6 +89,29 @@ namespace AddressBookSystem
                             bookName = newAddressBook;
                         }
                         break;
+
+
+                    case 6:
+                        Console.WriteLine("Enter Name Of AddressBook From Below List");
+                        foreach (KeyValuePair<string, AddressBookBuilder> item in addressBook.GetAddressBook())
+                        {
+                            Console.WriteLine(item.Key);
+                        }
+                        while (true)
+                        {
+                            bookName = Console.ReadLine();
+                            if (addressBook.GetAddressBook().ContainsKey(bookName))
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("No such AddressBook found. Try Again.");
+                            }
+                        }
+                        break;
+
+
                     default:
                         Console.WriteLine("Please enter correct option");
                         break;
