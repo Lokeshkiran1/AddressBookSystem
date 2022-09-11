@@ -12,7 +12,24 @@ namespace AddressBookSystem
         {
             AddressBookBuilder builder = new AddressBookBuilder();
             Console.WriteLine("Welcome To Address Book System");
-            int option2;
+            int option1;
+            string bookName = "default";
+            AddressBookBuilder addressBook = new AddressBookBuilder();
+
+            Console.WriteLine("1. Would you like to work on existing addressbook ? if yes press 1");
+            Console.WriteLine("2. Would you like to add  new addressbook ? if yes press 2");
+            option1 = Convert.ToInt32(Console.ReadLine());
+            switch (option1)
+            {
+                case 1:
+                    addressBook.AddAddressBook(bookName);
+                    break;
+                case 2:
+                    Console.WriteLine("Enter Name Of New Addressbook You want to create : ");
+                    bookName = Console.ReadLine();
+                    addressBook.AddAddressBook(bookName);
+                    break;
+            }
 
             do
             {
@@ -56,14 +73,27 @@ namespace AddressBookSystem
                         string nameToDelete=Console.ReadLine();
                         builder.DeleteContact(nameToDelete);
                         break;
+
+                    case 5:
+                        Console.WriteLine("Enter Name For New AddressBook");
+                        string newAddressBook = Console.ReadLine();
+                        addressBook.AddAddressBook(newAddressBook);
+                        Console.WriteLine("Would you like to Switch to " + newAddressBook);
+                        Console.WriteLine("1.Yes \n2.No");
+                        int c = Convert.ToInt32(Console.ReadLine());
+                        if (c == 1)
+                        {
+                            bookName = newAddressBook;
+                        }
+                        break;
                     default:
                         Console.WriteLine("Please enter correct option");
                         break;
                 }
                 Console.WriteLine("Do you want to continue, then press '1' else press '0' to exit");
-                option2 = Convert.ToInt32(Console.ReadLine());
+                option1 = Convert.ToInt32(Console.ReadLine());
             }
-            while (option2 != 0);
+            while (option1 != 0);
         }
     }
 }

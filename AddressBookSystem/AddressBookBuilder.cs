@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,12 @@ using System.Threading.Tasks;
 
 namespace AddressBookSystem
 {
-    internal class AddressBookBuilder
+    internal class AddressBookBuilder:IContacts
     {
         private LinkedList<Contacts> list = new LinkedList<Contacts>();
+
+        private Dictionary<string, AddressBookBuilder> dictionary = new Dictionary<string, AddressBookBuilder>();
+
         public void AddContact(string firstName, string lastName, string address, string city, string state, string email, int pinCode, long phoneNumber)
         {
            Contacts contacts = new Contacts();
@@ -112,6 +116,17 @@ namespace AddressBookSystem
             {
                 Console.WriteLine("list is empty, so delete option is invalid");
             }
+        }
+
+        public void AddAddressBook(string bookName)
+        {
+            AddressBookBuilder addressBook = new AddressBookBuilder();
+            
+            Console.WriteLine("AddressBook Created.");
+        }
+        public Dictionary<string, AddressBookBuilder> GetAddressBook()
+        {
+            return dictionary;
         }
 
     }
